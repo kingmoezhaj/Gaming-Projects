@@ -12,6 +12,8 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 public class Puzzle implements ApplicationListener {
 	SpriteBatch spriteBatch;
 	Texture texture;
+	Texture backgound;
+	Texture frame1;
 	BitmapFont font;
 	Puzzeled puzzs;
 
@@ -20,8 +22,10 @@ public class Puzzle implements ApplicationListener {
 		font = new BitmapFont();
 		font.setColor(Color.RED);
 		texture = new Texture(Gdx.files.internal("data/img1.jpg"));
+		backgound= new Texture(Gdx.files.internal("data/bg1.jpg"));
+		frame1= new Texture(Gdx.files.internal("data/frame1.png"));
 		spriteBatch = new SpriteBatch();
-		puzzs = new Puzzeled(texture,	0,600,4,4,0.5f,0.5f,10);
+		puzzs = new Puzzeled(texture,	100,500,4,4,0.5f,0.5f,10);
 		
 	}
 
@@ -36,6 +40,9 @@ public class Puzzle implements ApplicationListener {
 		// TODO Auto-generated method stub
 		
 	}
+	public void update(){
+		
+	}
 	
 	@Override
 	public void render() {
@@ -43,9 +50,12 @@ public class Puzzle implements ApplicationListener {
 		Gdx.graphics.getGL20().glClear(GL20.GL_COLOR_BUFFER_BIT);
 		spriteBatch.begin();
 		spriteBatch.setColor(Color.WHITE);
-		puzzs.DrawPuzzs(spriteBatch);
+		
 		//spriteBatch.draw(texture, 0, 0, 100,100, 0, 0, 100, 100, false, false); 
-		//draw(Texture texture, float x, float y, float width, float height, int srcX, int srcY, int srcWidth, int srcHeight, boolean flipX, boolean flipY) 
+		spriteBatch.draw(backgound,0,0,1300,700);
+		
+		puzzs.DrawPuzzs(spriteBatch);
+		//spriteBatch.draw(frame1,0,50,550,700);
 		spriteBatch.end();
 	}
 
