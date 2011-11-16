@@ -23,9 +23,9 @@ public class Puzzle implements ApplicationListener {
 		font.setColor(Color.RED);
 		texture = new Texture(Gdx.files.internal("data/img1.jpg"));
 		backgound= new Texture(Gdx.files.internal("data/bg1.jpg"));
-		frame1= new Texture(Gdx.files.internal("data/frame1.png"));
+		frame1= new Texture(Gdx.files.internal("data/Netlinks4.png"));
 		spriteBatch = new SpriteBatch();
-		puzzs = new Puzzeled(texture,	100,500,4,4,0.5f,0.5f,10);
+		puzzs = new Puzzeled(texture,	10,500,4,4,0.5f,0.5f,10);
 		
 	}
 
@@ -55,7 +55,7 @@ public class Puzzle implements ApplicationListener {
 		spriteBatch.draw(backgound,0,0,1300,700);
 		
 		puzzs.DrawPuzzs(spriteBatch);
-		//spriteBatch.draw(frame1,0,50,550,700);
+		spriteBatch.draw(frame1,0,0,117,128);
 		spriteBatch.end();
 	}
 
