@@ -7,6 +7,8 @@ public class Piece extends Point {
 
 	int srcX;
 	int srcY;
+	float initX;
+	float initY;
 	float width;
 	float height;
 	int srcWidth;
@@ -21,14 +23,34 @@ public class Piece extends Point {
 		this.srcY = srcY;
 		this.width = width;
 		this.height = height;
+		initX=x;
+		initY=y;
 
 	}
 
-	//this function is not complete ==> to be done by abdelhay
-	/*
+	public void setInitXY(){
+		x=initX;
+		y=initY;
+		width=srcWidth*0.5f;
+		height=srcHeight*0.5f;
+		
+	}
+	
+	
+	public boolean isApproxamite(int d,float px,float py,float factor,float h){
+		return (( Math.abs(x-(srcX*factor+px))<d ) && (Math.abs(y-((h-srcHeight)*factor-(srcY*factor)+py))<d));
+	}
+	
+	public void setInplace(float px,float py,float factor,float h){
+		x=srcX*factor+px;
+		y=(h-srcHeight)*factor-(srcY*factor)+py;
+		width=srcWidth*factor;
+		height=srcHeight*factor;
+	}
+	
 	public boolean hitTest(Point point){
-		return true;
-	}*/
+		return (point.getX()>x)&&(point.getX()<x+width)&&(point.getY()>y)&&(point.getY()<y+height);
+	}
 
 	public float getWidth() {
 		return width;
@@ -38,11 +60,11 @@ public class Piece extends Point {
 		return height;
 	}
 
-	public void setWidth(int width) {
+	public void setWidth(float width) {
 		this.width = width;
 	}
 
-	public void setHeight(int height) {
+	public void setHeight(float height) {
 		this.height = height;
 	}
 
