@@ -93,7 +93,7 @@ public class Puzzeled {
 					b=	pieces[i][j].hitTest(point);
 					if (b) {
 						touched=pieces[i][j];
-						//System.out.print("point("+point.getX()+","+point.getY()+") hit hit j="+j+" i="+i+" \n");
+						System.out.print("point nimporte ("+point.getX()+","+point.getY()+") hit hit j="+j+" i="+i+" \n");
 						break;
 					}
 			}
