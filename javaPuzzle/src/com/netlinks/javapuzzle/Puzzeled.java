@@ -9,6 +9,8 @@ public class Puzzeled {
 	float x;
 	float y;
 	int srcWidth;
+	
+
 	int srcHeight;
 	float xScale;
 	float yScale;
@@ -33,8 +35,9 @@ public class Puzzeled {
 		this.marj = marj;
 		for (int i = 0; i < numLines; i++) {
 			for (int j = 0; j < numColumns; j++) {
-				pieces[i][j] = new Piece(x+(srcWidth*xScale+marj) * j,
-						y-(srcHeight*yScale+marj ) * i);
+				pieces[i][j] = new Piece(x + (srcWidth * xScale + marj) * j, y
+						- (srcHeight * yScale + marj) * i, j * srcWidth, i
+						* srcHeight, srcWidth, srcHeight,xScale , yScale);
 			}
 		}
 
@@ -49,15 +52,95 @@ public class Puzzeled {
 		// int srcX, int srcY, int srcWidth, int srcHeight, boolean flipX,
 		// boolean flipY)
 
-		for (int i = 0; i < numLines; i++) {
+		/*for (int i = 0; i < numLines; i++) {
 			for (int j = 0; j < numColumns; j++) {
-				spriteBatch.draw(texture, pieces[i][j].getX(),
-						pieces[i][j].getY(), srcWidth * xScale, srcHeight
-								* yScale, j * srcWidth, i * srcHeight,
-						srcWidth, srcHeight, false, false);
+				
+						pieces[i][j].Draw(spriteBatch, texture, xScale, yScale);
+						
 			}
-		}
+		}*/
+		pieces[0][0].setXY(0, 0);
+		pieces[0][0].Draw(spriteBatch, texture);
+	}
+
+
+	public Texture getTexture() {
+		return texture;
+	}
+
+	public void setTexture(Texture texture) {
+		this.texture = texture;
+	}
+
+	public float getX() {
+		return x;
+	}
+
+	public void setX(float x) {
+		this.x = x;
+	}
+
+	public float getY() {
+		return y;
+	}
+
+	public void setY(float y) {
+		this.y = y;
+	}
+
+	public int getSrcWidth() {
+		return srcWidth;
+	}
+
+	public void setSrcWidth(int srcWidth) {
+		this.srcWidth = srcWidth;
+	}
+
+	public int getSrcHeight() {
+		return srcHeight;
+	}
+
+	public void setSrcHeight(int srcHeight) {
+		this.srcHeight = srcHeight;
+	}
+
+	public float getxScale() {
+		return xScale;
+	}
+
+	public void setxScale(float xScale) {
+		this.xScale = xScale;
+	}
+
+	public float getyScale() {
+		return yScale;
+	}
+
+	public void setyScale(float yScale) {
+		this.yScale = yScale;
+	}
+
+	public float getMarj() {
+		return marj;
+	}
+
+	public void setMarj(float marj) {
+		this.marj = marj;
+	}
+
+	public int getNumColumns() {
+		return numColumns;
+	}
+
+	public void setNumColumns(int numColumns) {
+		this.numColumns = numColumns;
+	}
+
+	public int getNumLines() {
+		return numLines;
+	}
+
+	public void setNumLines(int numLines) {
+		this.numLines = numLines;
 	}
 }
-
-

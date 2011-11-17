@@ -1,39 +1,71 @@
 package com.netlinks.javapuzzle;
 
-public class Piece {
-	
-	Point position;
-	int column;
-	int row;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.Texture;
 
-	public Piece(float x, float y) {
-		position=new Point(x, y);
+public class Piece extends Point {
+
+	int srcX;
+	int srcY;
+	int width;
+	int height;
+	float xScale;
+	float yScale;
+
+	public Piece(float x, float y, int srcX, int srcY, int width, int height,
+			float xScale, float yScale) {
+		super(x, y);
+		this.xScale = xScale;
+		this.yScale = yScale;
+		this.srcX = srcX;
+		this.srcY = srcY;
+		this.width = width;
+		this.height = height;
 
 	}
 
+	//this function is not complete ==> to be done by abdelhay
+	/*
+	public boolean hitTest(Point point){
+		return true;
+	}*/
 
-
-	
-
-	public void setX(float x) {
-		this.position.setX(x);
+	public int getWidth() {
+		return width;
 	}
 
-	public void setY(float y) {
-		this.position.setY(y);
+	public int getHeight() {
+		return height;
 	}
 
-	public void setXY(float x, float y) {
-		this.position.setX(x);
-		this.position.setY(y);
+	public void setWidth(int width) {
+		this.width = width;
 	}
 
-	public float getX() {
-		return this.position.getX();
+	public void setHeight(int height) {
+		this.height = height;
 	}
 
-	public float getY() {
-		return this.position.getY();
+	public float getxScale() {
+		return xScale;
+	}
+
+	public void setxScale(float xScale) {
+		this.xScale = xScale;
+	}
+
+	public float getyScale() {
+		return yScale;
+	}
+
+	public void setyScale(float yScale) {
+		this.yScale = yScale;
+	}
+
+	public void Draw(SpriteBatch spriteBatch, Texture texture) {
+		spriteBatch.draw(texture, x, y, width * xScale, height * yScale, srcX,
+				srcY, width, height, false, false);
+
 	}
 
 }
