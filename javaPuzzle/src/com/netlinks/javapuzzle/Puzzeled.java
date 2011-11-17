@@ -37,7 +37,7 @@ public class Puzzeled {
 			for (int j = 0; j < numColumns; j++) {
 				pieces[i][j] = new Piece(x + (srcWidth * xScale + marj) * j, y
 						- (srcHeight * yScale + marj) * i, j * srcWidth, i
-						* srcHeight, srcWidth, srcHeight,xScale , yScale);
+						* srcHeight, srcWidth*xScale, srcHeight*yScale,srcWidth , srcHeight);
 			}
 		}
 
@@ -52,15 +52,14 @@ public class Puzzeled {
 		// int srcX, int srcY, int srcWidth, int srcHeight, boolean flipX,
 		// boolean flipY)
 
-		/*for (int i = 0; i < numLines; i++) {
+		for (int i = 0; i < numLines; i++) {
 			for (int j = 0; j < numColumns; j++) {
 				
-						pieces[i][j].Draw(spriteBatch, texture, xScale, yScale);
+						pieces[i][j].Draw(spriteBatch, texture);
 						
 			}
-		}*/
-		pieces[0][0].setXY(0, 0);
-		pieces[0][0].Draw(spriteBatch, texture);
+		}
+		
 	}
 
 

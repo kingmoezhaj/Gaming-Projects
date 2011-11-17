@@ -7,16 +7,16 @@ public class Piece extends Point {
 
 	int srcX;
 	int srcY;
-	int width;
-	int height;
-	float xScale;
-	float yScale;
+	float width;
+	float height;
+	int srcWidth;
+	int srcHeight;
 
-	public Piece(float x, float y, int srcX, int srcY, int width, int height,
-			float xScale, float yScale) {
+	public Piece(float x, float y, int srcX, int srcY, float width, float height,
+			int srcWidth, int srcHeight) {
 		super(x, y);
-		this.xScale = xScale;
-		this.yScale = yScale;
+		this.srcWidth = srcWidth;
+		this.srcHeight = srcHeight;
 		this.srcX = srcX;
 		this.srcY = srcY;
 		this.width = width;
@@ -30,11 +30,11 @@ public class Piece extends Point {
 		return true;
 	}*/
 
-	public int getWidth() {
+	public float getWidth() {
 		return width;
 	}
 
-	public int getHeight() {
+	public float getHeight() {
 		return height;
 	}
 
@@ -46,25 +46,25 @@ public class Piece extends Point {
 		this.height = height;
 	}
 
-	public float getxScale() {
-		return xScale;
+	public float getsrcWidth() {
+		return srcWidth;
 	}
 
-	public void setxScale(float xScale) {
-		this.xScale = xScale;
+	public void setsrcWidth(int srcWidth) {
+		this.srcWidth = srcWidth;
 	}
 
-	public float getyScale() {
-		return yScale;
+	public float getsrcHeight() {
+		return srcHeight;
 	}
 
-	public void setyScale(float yScale) {
-		this.yScale = yScale;
+	public void setsrcHeight(int srcHeight) {
+		this.srcHeight = srcHeight;
 	}
 
 	public void Draw(SpriteBatch spriteBatch, Texture texture) {
-		spriteBatch.draw(texture, x, y, width * xScale, height * yScale, srcX,
-				srcY, width, height, false, false);
+		spriteBatch.draw(texture, x, y, width , height , srcX,
+				srcY,srcWidth, srcHeight, false, false);
 
 	}
 
